@@ -25,5 +25,5 @@ workflows:
 #            - run:
 #                command: echo "build done"
             - run:
-                command: bash build.sh
+                command: sudo bash build.sh
 
