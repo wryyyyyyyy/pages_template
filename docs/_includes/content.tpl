@@ -9,4 +9,7 @@
 <p>{% include ipsum3.tpl %}</p>
 <p>{% include ipsum4.tpl %}</p>
 </div>
+<div class="w3-col w3-container m4 l3 w3-yellow">
+<p>{% include codehl.tpl %}</p>
+</div>
 </div>
