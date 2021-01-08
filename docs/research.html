@@ -1,9 +1,11 @@
 ---
-
+title: research page
 ---
+
 {% include vars.tpl %}
-{% assign title="research page" %}
+{% assign title={{ page.title }} %}
 {% include header.tpl %}
 {% include navigation.tpl %}
 {% include table.tpl %}
+{% include builds.tpl %}
 {% include footer.tpl %}
