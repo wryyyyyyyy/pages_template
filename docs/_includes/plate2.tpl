@@ -1,3 +1,4 @@
+{% include vars.tpl %}
 <div class="w3-row">
   <div class="w3-col m1 w3-center w3-grey">1</div>
   <div class="w3-col m1 w3-center">2</div>

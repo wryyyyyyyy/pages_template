@@ -1,3 +1,4 @@
+{% include vars.tpl %}
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
