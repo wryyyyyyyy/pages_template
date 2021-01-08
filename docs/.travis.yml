@@ -1,6 +1,7 @@
 # Build all branches, *including* gh-pages:
 script:
-- sudo pwd
+    run:
+    - sudo pwd
 
 on:
   branch: gh-pages

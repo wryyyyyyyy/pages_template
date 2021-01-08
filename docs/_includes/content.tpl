@@ -4,6 +4,6 @@
 <p>{% include pic.tpl %}</p>
 </div>
 <div class="w3-col w3-container m8 l9">
-<p>{% include log.txt %}</p>
+<p>{% include log.tpl %}</p>
 </div>
 </div>
