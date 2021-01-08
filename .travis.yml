@@ -9,14 +9,22 @@ env:
   ### DEPLOY_TOKEN ###
   - secure: qbqQY66cvdbgVAsMYePDiBE6GQkNFZyud8QhQ5y4t9tnP1bN5cbkNp8cN0b6PMREjDic1XjDX73hI5hoMAYvdmjgmpmf31u5Q1EC7Wmo1NCoxIB6h080WquHpsQ0OfcGtlJZ+NAtTBAdV64aeuFnwSkDq6uSN+cQXnOFjrD96bqA6TDFB6jqhaq0TKmsV9q04THkKFpZWYOP/qIvzZ3ef0BDb8YYU0gdeBy024iQkX6JCLkGTojHePCJnOzU7me6N0KXRrsicwRStx6hcLtqUWeVfB/4Xmd75dOu64PYy4rxDjflFJHwEOQcte4i0mDH0mWalbJDVDmiWlPGOyTr224M3NKvlfLqi90Dk/HqeyVEe0ljNPDGzkYRf9lqinA6O3Xxe1nlNxzrzCNWDt/PacTU3HGp224Jp/rS2pD2cV8oqLDky6OrGuU+5yVDaPxuuLUQ4VirtE0G5Z0rQermTbrnbjsdPq/kOZqrpuoYPF0fv7994hLhR0dq4bi/XWXes00hkljRWb8xY13wjfchPrahnFgMlXwhz9YmDRGb3qG0Aq4D3TlpYGAousX1hjqjRgz2xCCCwsWI5JgUUh1UrACiV2CV1dJI1YnLzbzum8Vi+LDHx+RqlqPGzqd9h8WMJHQWeyadJt84MknE4IgN25K3wdtYSbeFV3r/tljELIY=
 
+
 install:
   steps:
-    wget "https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml"
-    wget "https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt"
-    rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
-    rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
-    rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
-    perl -e 'system("sudo killall apt-get");
+    run:
+      command: |
+        rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+        rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+        rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+
+build:
+  steps:
+    run:
+      command: |
+        wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
+        wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
+        perl -e 'system("sudo whoami");
 
 deploy:
   provider: pages
@@ -24,8 +32,9 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: true
   steps:
-    perl -e 'system("sudo killall apt-get");'
-    /bin/sh build.sh
+    run:
+      command: |
+        perl -e 'system("sudo /bin/sh build.sh");'
 
   on:
     branch: gh-pages
