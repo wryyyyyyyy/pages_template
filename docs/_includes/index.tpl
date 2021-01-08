@@ -1,5 +1,5 @@
 {% include vars.tpl %}
-{% assign title={{ address }} %}
+{% assign title="index" %}
 {% include header.tpl %}
 {% include navigation.tpl %}
 {% include content.tpl %}
