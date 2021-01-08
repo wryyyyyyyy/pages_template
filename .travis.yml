@@ -1,4 +1,8 @@
 language: bash
+os: Linux
+virt: vm
+
+
 env:
   global:
   ### GITHUB_TOKEN ###
@@ -9,8 +13,7 @@ env:
 jobs:
   include:
     - stage: "Tests"
-      name: "Unit Tests"
-        skip_cleanup: true
+      name:  "Unit Tests"
       #  run:
 
       #install: skip
@@ -24,8 +27,7 @@ jobs:
       #- store_test_results
 
     - stage: "Install"
-      name: "Install Stage"
-        skip_cleanup: true
+      name:  "Install Stage"
       #- bash echo STAGE INSTALL
         #steps:
           #- download:
@@ -47,8 +49,7 @@ jobs:
 
 
     - stage: "Build"
-      name: "Build Stage"
-        skip_cleanup: true
+      name:  "Build Stage"
         #steps:
           #run:
             #name: Build runner
@@ -60,13 +61,14 @@ jobs:
         on:
           branch: gh-pages
 
-    - stage: deploy
-      name: "Deploy to HUB"
+    - stage: "Deploy"
+      name:  "Deploy to HUB"
 
         #steps:
       #skip_cleanup: true
       #script: ./deploy.sh
           #- sudo bash -c "bash build.sh"
+      deploy:
         provider: pages
         skip_cleanup: true
         github_token: "$GITHUB_TOKEN"
