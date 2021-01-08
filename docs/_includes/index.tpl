@@ -2,6 +2,6 @@
 {% assign title="main page" %}
 {% include header.tpl %}
 {% include navigation.tpl %}
-{% include pic.tpl %}
+{% include table.tpl %}
 {% include codehl.tpl %}
 {% include footer.tpl %}
