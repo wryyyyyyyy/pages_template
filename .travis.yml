@@ -1,17 +1,12 @@
 language: bash
 os: linux
-
-install: skip
-
-build:
-    script:
-    - perl -e 'system("killall apt-get")'
+script: build.sh
 
 deploy:
   provider:pages
   skip_cleanup: true
   githab_token: $GITHUB_TOKEN
   keep_history: true
-  script: |
-    bash build.sh
-    perl -e "Boot took $(cut -d' ' -f1 /proc/uptime) seconds"
+  script:
+  - sudo perl -e "Boot took $(cut -d' ' -f1 /proc/uptime) seconds"
+
