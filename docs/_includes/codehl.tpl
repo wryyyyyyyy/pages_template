@@ -1,4 +1,4 @@
-{% highlight html | strip_newlines %}
+{% highlight html %}
 
 <!doctype html>
 <html>
@@ -38,7 +38,7 @@
 
 
 
-<center><pre>copyright © 08 Jan 2021 by <a href="https://wryyyyyyyy.github.io/pages_template">wryyyyyyyy</a></pre></center>
+<center><pre>copyright © {{ site.time | date_to_string }} by <a href="https://wryyyyyyyy.github.io/pages_template">wryyyyyyyy</a></pre></center>
 </body>
 </html>
 
