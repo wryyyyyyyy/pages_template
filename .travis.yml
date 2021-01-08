@@ -3,23 +3,24 @@ env:
   global:
 
 script:
-  run: sudo pwd
+  - sudo bash pwd
+  - sudo bash ls -la
 
 install:
   script:
-    run: echo install
+  - sudo bash echo install
 
 before_install:
   script:
-    run: echo before_install
+  - sudo bash echo before_install
 
 build:
   script:
-    run: sudo bash build.sh
+  - sudo bash build.sh
 
 before_build:
   script:
-    run: echo before_build
+    run: sudo bash echo before_build
 
 deploy:
   provider: pages
@@ -29,7 +30,7 @@ deploy:
   target_branch: gh-pages
 
   script:
-    run: sudo pwd
+    run: sudo bash pwd
   - #sudo wget -oQ- https://api.travis-ci.com/v3/job/469819835/log.txt
 
   on:
@@ -37,7 +38,7 @@ deploy:
 
 before_deploy:
   script:
-    run: echo before_deploy
+    run: sudo bash echo before_deploy
 
 branches:
   only:
