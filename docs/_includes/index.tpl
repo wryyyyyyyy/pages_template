@@ -1,5 +1,3 @@
----
----
 {% include vars.tpl %}
 {% assign title="index" %}
 {% include header.tpl %}

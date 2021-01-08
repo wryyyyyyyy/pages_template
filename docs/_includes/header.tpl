@@ -1,5 +1,3 @@
----
----
 {% include vars.tpl %}
 <!doctype html>
     <html>
