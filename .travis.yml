@@ -9,11 +9,16 @@ env:
 build:
   skip_cleanup: true
   script:
+  - sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
+  script:
+  - sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
+
+  script:
   - sudo bash build.sh
 
 before_build:
   script:
-  - sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds -O ./docs/_includes/builds.tpl
+  - checkout
 
 deploy:
   provider: pages
@@ -21,8 +26,7 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   target_branch: gh-pages
-  script:
-  - sudo bash build.sh
+
   on:
     branch: gh-pages
 

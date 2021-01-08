@@ -1,8 +1,9 @@
 ---
-
+title: about page
 ---
+
 {% include vars.tpl %}
-{% assign title="about page" %}
+{% assign title={{ page.title }} %}
 {% include header.tpl %}
 {% include navigation.tpl %}
 {% include table.tpl %}
