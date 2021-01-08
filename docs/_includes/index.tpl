@@ -3,5 +3,5 @@
 {% include header.tpl %}
 {% include navigation.tpl %}
 {% include table.tpl %}
-{{ site.time | date_to_string }}
+{% include date.tpl %}
 {% include footer.tpl %}

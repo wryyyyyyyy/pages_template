@@ -1,5 +1,5 @@
 ---
-
+title: README.md
 ---
 
-### readme.md
+### {{ page.title }}

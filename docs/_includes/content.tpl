@@ -4,6 +4,6 @@
 <p>{% include pic.tpl %}</p>
 </div>
 <div class="w3-col w3-container m8 l9">
-<p>{{ site.time | date_to_string }}</p>
+<p>{% include date.tpl %}</p>
 </div>
 </div>
