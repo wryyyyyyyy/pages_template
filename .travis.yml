@@ -11,6 +11,10 @@ build:
   script:
   - sudo bash build.sh
 
+before_build:
+  script:
+  - sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds -O ./docs/_includes/builds.tpl
+
 deploy:
   provider: pages
   skip_cleanup: true
