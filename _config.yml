@@ -29,7 +29,7 @@ unpublished         : false
 
 # Plugins
 whitelist           : []
-plugins             : []
+plugins             : [github-pages]
 
 # Conversion
 markdown            : kramdown
@@ -43,7 +43,7 @@ detach              : false
 port                : 4000
 host                : 127.0.0.1
 baseurl             : "/pages_template" # does not include hostname # /pages_template
-show_dir_listing    : true
+show_dir_listing    : false
 
 # Outputting
 permalink           : date
@@ -51,13 +51,13 @@ paginate_path       : /page:num
 timezone            : null
 
 quiet               : false
-verbose             : true
+verbose             : false
 defaults            : []
 
 liquid:
   error_mode        : warn
-  strict_filters    : true
-  strict_variables  : true
+  strict_filters    : false
+  strict_variables  : false
 
 # Markdown Processors
 kramdown:
@@ -68,4 +68,4 @@ kramdown:
   input             : GFM
   hard_wrap         : false
   footnote_nr       : 1
-  show_warnings     : true
+  show_warnings     : false
