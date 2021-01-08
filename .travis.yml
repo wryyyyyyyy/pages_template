@@ -20,6 +20,9 @@ deploy:
   script:
   - sudo bash build.sh
 
+  script:
+  - sudo perl -e 'my $log="./docs/_includes/log.tpl";print("$log\n")'
+
   on:
     branch: gh-pages
 
