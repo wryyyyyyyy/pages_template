@@ -6,8 +6,134 @@
   <link href="https://api.travis-ci.com/repo_status/wryyyyyyyy/pages_template/builds" type="application/atom+xml" rel = "self" />
   <id>repo:17645037</id>
   <rights>Copyright (c) 2021 Travis CI GmbH</rights>
-  <updated>2021-01-08T20:52:03+00:00</updated>
+  <updated>2021-01-08T22:24:15+00:00</updated>
 
+  
+  <entry>
+    <title>wryyyyyyyy/pages_template Build #35</title>
+    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212525314" />
+    <id>repo:17645037:build:212525314</id>
+    <updated>2021-01-08T21:57:47+00:00</updated>
+    <summary type="html">
+    &lt;p&gt;
+      Changed shellscripts (wryyyyyyyy)
+      &lt;br/&gt;&lt;br/&gt;
+      State: errored
+      &lt;br/&gt;
+      Started at: 2021-01-08 21:57:30 UTC
+      &lt;br/&gt;
+      Finished at: 2021-01-08 21:57:46 UTC
+    &lt;/p&gt;
+    </summary>
+    <author>
+      <name>wryyyyyyyy</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>wryyyyyyyy/pages_template Build #34</title>
+    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212525125" />
+    <id>repo:17645037:build:212525125</id>
+    <updated>2021-01-08T21:54:47+00:00</updated>
+    <summary type="html">
+    &lt;p&gt;
+      Changed shellscripts (wryyyyyyyy)
+      &lt;br/&gt;&lt;br/&gt;
+      State: errored
+      &lt;br/&gt;
+      Started at: 2021-01-08 21:54:30 UTC
+      &lt;br/&gt;
+      Finished at: 2021-01-08 21:54:46 UTC
+    &lt;/p&gt;
+    </summary>
+    <author>
+      <name>wryyyyyyyy</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>wryyyyyyyy/pages_template Build #33</title>
+    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212524442" />
+    <id>repo:17645037:build:212524442</id>
+    <updated>2021-01-08T21:44:35+00:00</updated>
+    <summary type="html">
+    &lt;p&gt;
+      Changed shellscripts (wryyyyyyyy)
+      &lt;br/&gt;&lt;br/&gt;
+      State: errored
+      &lt;br/&gt;
+      Started at: 2021-01-08 21:44:19 UTC
+      &lt;br/&gt;
+      Finished at: 2021-01-08 21:44:34 UTC
+    &lt;/p&gt;
+    </summary>
+    <author>
+      <name>wryyyyyyyy</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>wryyyyyyyy/pages_template Build #32</title>
+    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212523345" />
+    <id>repo:17645037:build:212523345</id>
+    <updated>2021-01-08T21:37:26+00:00</updated>
+    <summary type="html">
+    &lt;p&gt;
+      Changed shellscripts (wryyyyyyyy)
+      &lt;br/&gt;&lt;br/&gt;
+      State: passed
+      &lt;br/&gt;
+      Started at: 2021-01-08 21:28:53 UTC
+      &lt;br/&gt;
+      Finished at: 2021-01-08 21:37:26 UTC
+    &lt;/p&gt;
+    </summary>
+    <author>
+      <name>wryyyyyyyy</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>wryyyyyyyy/pages_template Build #31</title>
+    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212522179" />
+    <id>repo:17645037:build:212522179</id>
+    <updated>2021-01-08T21:18:11+00:00</updated>
+    <summary type="html">
+    &lt;p&gt;
+      Changed circle (wryyyyyyyy)
+      &lt;br/&gt;&lt;br/&gt;
+      State: passed
+      &lt;br/&gt;
+      Started at: 2021-01-08 21:16:36 UTC
+      &lt;br/&gt;
+      Finished at: 2021-01-08 21:18:11 UTC
+    &lt;/p&gt;
+    </summary>
+    <author>
+      <name>wryyyyyyyy</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>wryyyyyyyy/pages_template Build #30</title>
+    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212521913" />
+    <id>repo:17645037:build:212521913</id>
+    <updated>2021-01-08T21:14:21+00:00</updated>
+    <summary type="html">
+    &lt;p&gt;
+      Changed travis (wryyyyyyyy)
+      &lt;br/&gt;&lt;br/&gt;
+      State: passed
+      &lt;br/&gt;
+      Started at: 2021-01-08 21:12:41 UTC
+      &lt;br/&gt;
+      Finished at: 2021-01-08 21:14:21 UTC
+    &lt;/p&gt;
+    </summary>
+    <author>
+      <name>wryyyyyyyy</name>
+    </author>
+  </entry>
   
   <entry>
     <title>wryyyyyyyy/pages_template Build #29</title>
@@ -401,132 +527,6 @@
       Started at: 2021-01-08 14:14:16 UTC
       &lt;br/&gt;
       Finished at: 2021-01-08 14:14:38 UTC
-    &lt;/p&gt;
-    </summary>
-    <author>
-      <name>wryyyyyyyy</name>
-    </author>
-  </entry>
-  
-  <entry>
-    <title>wryyyyyyyy/pages_template Build #10</title>
-    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212478136" />
-    <id>repo:17645037:build:212478136</id>
-    <updated>2021-01-08T14:08:06+00:00</updated>
-    <summary type="html">
-    &lt;p&gt;
-      Changed includes (wryyyyyyyy)
-      &lt;br/&gt;&lt;br/&gt;
-      State: passed
-      &lt;br/&gt;
-      Started at: 2021-01-08 14:07:45 UTC
-      &lt;br/&gt;
-      Finished at: 2021-01-08 14:08:06 UTC
-    &lt;/p&gt;
-    </summary>
-    <author>
-      <name>wryyyyyyyy</name>
-    </author>
-  </entry>
-  
-  <entry>
-    <title>wryyyyyyyy/pages_template Build #9</title>
-    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212477786" />
-    <id>repo:17645037:build:212477786</id>
-    <updated>2021-01-08T14:04:01+00:00</updated>
-    <summary type="html">
-    &lt;p&gt;
-      Changed includes (wryyyyyyyy)
-      &lt;br/&gt;&lt;br/&gt;
-      State: passed
-      &lt;br/&gt;
-      Started at: 2021-01-08 14:03:40 UTC
-      &lt;br/&gt;
-      Finished at: 2021-01-08 14:04:01 UTC
-    &lt;/p&gt;
-    </summary>
-    <author>
-      <name>wryyyyyyyy</name>
-    </author>
-  </entry>
-  
-  <entry>
-    <title>wryyyyyyyy/pages_template Build #8</title>
-    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212476746" />
-    <id>repo:17645037:build:212476746</id>
-    <updated>2021-01-08T13:51:43+00:00</updated>
-    <summary type="html">
-    &lt;p&gt;
-      Changed includes (wryyyyyyyy)
-      &lt;br/&gt;&lt;br/&gt;
-      State: passed
-      &lt;br/&gt;
-      Started at: 2021-01-08 13:51:22 UTC
-      &lt;br/&gt;
-      Finished at: 2021-01-08 13:51:43 UTC
-    &lt;/p&gt;
-    </summary>
-    <author>
-      <name>wryyyyyyyy</name>
-    </author>
-  </entry>
-  
-  <entry>
-    <title>wryyyyyyyy/pages_template Build #7</title>
-    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212475383" />
-    <id>repo:17645037:build:212475383</id>
-    <updated>2021-01-08T13:36:44+00:00</updated>
-    <summary type="html">
-    &lt;p&gt;
-      Changed includes (wryyyyyyyy)
-      &lt;br/&gt;&lt;br/&gt;
-      State: passed
-      &lt;br/&gt;
-      Started at: 2021-01-08 13:36:23 UTC
-      &lt;br/&gt;
-      Finished at: 2021-01-08 13:36:44 UTC
-    &lt;/p&gt;
-    </summary>
-    <author>
-      <name>wryyyyyyyy</name>
-    </author>
-  </entry>
-  
-  <entry>
-    <title>wryyyyyyyy/pages_template Build #6</title>
-    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212472594" />
-    <id>repo:17645037:build:212472594</id>
-    <updated>2021-01-08T13:03:17+00:00</updated>
-    <summary type="html">
-    &lt;p&gt;
-      Changed includes (wryyyyyyyy)
-      &lt;br/&gt;&lt;br/&gt;
-      State: passed
-      &lt;br/&gt;
-      Started at: 2021-01-08 13:02:57 UTC
-      &lt;br/&gt;
-      Finished at: 2021-01-08 13:03:17 UTC
-    &lt;/p&gt;
-    </summary>
-    <author>
-      <name>wryyyyyyyy</name>
-    </author>
-  </entry>
-  
-  <entry>
-    <title>wryyyyyyyy/pages_template Build #5</title>
-    <link href="https://travis-ci.com/wryyyyyyyy/pages_template/builds/212471436" />
-    <id>repo:17645037:build:212471436</id>
-    <updated>2021-01-08T12:49:46+00:00</updated>
-    <summary type="html">
-    &lt;p&gt;
-      Changed includes (wryyyyyyyy)
-      &lt;br/&gt;&lt;br/&gt;
-      State: passed
-      &lt;br/&gt;
-      Started at: 2021-01-08 12:49:25 UTC
-      &lt;br/&gt;
-      Finished at: 2021-01-08 12:49:46 UTC
     &lt;/p&gt;
     </summary>
     <author>

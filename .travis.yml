@@ -10,45 +10,90 @@ jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
+      #  run:
+
       #install: skip
       #script:
-      - bash dl_log.sh
       #- store_test_results
 
-      #script:
-      - bash dl_atom.sh
-      name: "Integration Tests"
+      script:
+      #- bash dl_atom.sh
+      #name: "Integration Tests"
       #install: skip
-      #- store_test_results
+      - store_test_results
 
     - stage: "Install"
       name: "Install Stage"
       #- bash echo STAGE INSTALL
+        steps:
+          #- download:
+          #  name: "Download Stage"
+            #command: |
+          - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+          - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+          - sudo bash -c "wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml"
+          - sudo bash -c "wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt"
+          - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+
+        on:
+          branch: gh-pages
+
+          #- prepare:
+           # name: "Prepare Stage"
+            #command: |
+             # sudo bash -c "wget -oQ- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom"
+
+
+
+    - stage: "Build"
+      name: "Build Stage"
+        steps:
+          run:
+            name: Build runner
+            command: sudo bash -c "cat ./docs/_site/log.txt"
+             # bash dl_atom.sh
+            name: Phase 2
+            command: sudo bash -c "cat ./docs/_site/atom.xml"
+
+        on:
+          branch: gh-pages
 
     - stage: deploy
-      name: "Deploy to GCP"
+      name: "Deploy to HUB"
+        steps:
       #skip_cleanup: true
       #script: ./deploy.sh
+          - sudo bash -c "bash build.sh"
+        provider: pages
+        skip_cleanup: true
+        github_token: "$GITHUB_TOKEN"
+        keep_history: true
+        target_branch: gh-pages
 
-install:
+          steps:
+            run:
+              name: Jekyll Build Stage
+              command: sudo bash -c "jekyll b --trace"
+        on:
+          branch: gh-pages
+
+
+#install:
 #- bash echo INSTALL
 #- store_test_results
   #script:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
 
-before_install:
+#before_install:
 #- bash echo BEFORE INSTALL
 #- git.checkout
   #script:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
-build:
+#build:
   #script:
   #- bash echo STAGE BUILD
 
 
-before_build:
+#before_build:
   #script:
   #- bash echo BEFORE BUILD
   #- store_test_results
@@ -56,23 +101,22 @@ before_build:
 #- sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
 #- store_test_results
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  keep_history: true
-  target_branch: gh-pages
+#deploy:
+#  provider: pages
+#  skip_cleanup: true
+#  github_token: "$GITHUB_TOKEN"
+#  keep_history: true
+#  target_branch: gh-pages
 
 #  script: bash dl_log.sh
 #  script: bash dl_atom.sh
 #  script: bash build.sh
   #script:
-  - sudo bash jekyll b --trace
+#  - sudo bash jekyll b --trace
   #script:
-  - sudo bash build.sh
+#  - sudo bash build.sh
 
-  on:
-    branch: gh-pages
+
 
 branches:
   only:
