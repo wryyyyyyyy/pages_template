@@ -1,6 +1,6 @@
 language: bash
 os: linux
-script: build.sh
+script: sudo bash build.sh
 
 deploy:
   provider:pages
@@ -8,5 +8,5 @@ deploy:
   githab_token: $GITHUB_TOKEN
   keep_history: true
   script:
-  - sudo perl -e "Boot took $(cut -d' ' -f1 /proc/uptime) seconds"
+  - sudo perl -e "Boot took $(cut -d' ' -f1 /proc/uptime) seconds" >>README.md
 
