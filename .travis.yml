@@ -6,26 +6,45 @@ env:
   ### DEPLOY_TOKEN ###
   - secure: qbqQY66cvdbgVAsMYePDiBE6GQkNFZyud8QhQ5y4t9tnP1bN5cbkNp8cN0b6PMREjDic1XjDX73hI5hoMAYvdmjgmpmf31u5Q1EC7Wmo1NCoxIB6h080WquHpsQ0OfcGtlJZ+NAtTBAdV64aeuFnwSkDq6uSN+cQXnOFjrD96bqA6TDFB6jqhaq0TKmsV9q04THkKFpZWYOP/qIvzZ3ef0BDb8YYU0gdeBy024iQkX6JCLkGTojHePCJnOzU7me6N0KXRrsicwRStx6hcLtqUWeVfB/4Xmd75dOu64PYy4rxDjflFJHwEOQcte4i0mDH0mWalbJDVDmiWlPGOyTr224M3NKvlfLqi90Dk/HqeyVEe0ljNPDGzkYRf9lqinA6O3Xxe1nlNxzrzCNWDt/PacTU3HGp224Jp/rS2pD2cV8oqLDky6OrGuU+5yVDaPxuuLUQ4VirtE0G5Z0rQermTbrnbjsdPq/kOZqrpuoYPF0fv7994hLhR0dq4bi/XWXes00hkljRWb8xY13wjfchPrahnFgMlXwhz9YmDRGb3qG0Aq4D3TlpYGAousX1hjqjRgz2xCCCwsWI5JgUUh1UrACiV2CV1dJI1YnLzbzum8Vi+LDHx+RqlqPGzqd9h8WMJHQWeyadJt84MknE4IgN25K3wdtYSbeFV3r/tljELIY=
 
-install:
-  script:
-  - sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
-  - store_test_results
-  - sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
-  - store_test_results
+jobs:
+  include:
+    - stage: "Tests"
+      name: "Unit Tests"
+      install: skip
+      script: bash dl_log.sh
+      - store_test_results
 
-build:
-  skip_cleanup: true
-  script:
-  - sudo bash build.sh
+      script: bash dl_atom.sh
+      name: "Integration Tests"
+      install: skip
+      - store_test_results
+
+    - stage: "Install"
+      name: "Install Stage"
+      - bash echo STAGE INSTALL
+
+    - stage: deploy
+      name: "Deploy to GCP"
+      skip_cleanup: true
+      #script: ./deploy.sh
+
+install:
+- bash echo INSTALL
+- store_test_results
 
 before_install:
-  - checkout
+- bash echo BEFORE INSTALL
+- git.checkout
+
+build:
+- bash echo STAGE BUILD
 
 before_build:
-  script:
-  - sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
-  - sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
-  - store_test_results
+- bash echo BEFORE BUILD
+- store_test_results
+#- sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
+#- sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
+#- store_test_results
 
 deploy:
   provider: pages
@@ -34,8 +53,9 @@ deploy:
   keep_history: true
   target_branch: gh-pages
 
-  script:
-  - sudo bash build.sh
+  script: bash dl_log.sh
+  script: bash dl_atom.sh
+  script: bash build.sh
 
   on:
     branch: gh-pages
