@@ -4,7 +4,7 @@ jobs:
   main:
     machine: true
     steps:
-      - checkout
+#      - checkout
 #      - run:
 #          command: echo "building"
 #      - run:
@@ -24,6 +24,6 @@ workflows:
 #               command: echo "build stage"
 #            - run:
 #                command: echo "build done"
-            - run:
-                command: sudo bash build.sh
+#            - run:
+#                command: sudo bash build.sh
 
