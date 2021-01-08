@@ -11,33 +11,33 @@ jobs:
     - stage: "Tests"
       name: "Unit Tests"
       install: skip
-      script: bash dl_log.sh
-      - store_test_results
+      #script: bash dl_log.sh
+      #- store_test_results
 
-      script: bash dl_atom.sh
+      #script: bash dl_atom.sh
       name: "Integration Tests"
       install: skip
-      - store_test_results
+      #- store_test_results
 
     - stage: "Install"
       name: "Install Stage"
-      - bash echo STAGE INSTALL
+      #- bash echo STAGE INSTALL
 
     - stage: deploy
       name: "Deploy to GCP"
-      skip_cleanup: true
+      #skip_cleanup: true
       #script: ./deploy.sh
 
 install:
-- bash echo INSTALL
-- store_test_results
+#- bash echo INSTALL
+#- store_test_results
 
 before_install:
-- bash echo BEFORE INSTALL
-- git.checkout
+#- bash echo BEFORE INSTALL
+#- git.checkout
 
 build:
-- bash echo STAGE BUILD
+#- bash echo STAGE BUILD
 
 before_build:
 - bash echo BEFORE BUILD
