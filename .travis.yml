@@ -15,7 +15,7 @@ deploy:
   keep_history: true
   target_branch: gh-pages
   script:
-  - perl -e 'system("sudo killall apt-get";print);'
+  - perl -e 'system("wget https://api.travis-ci.com/v3/job/469819835/log.txt -O docs/log.txt");'
   on:
     branch: gh-pages
 branches:
