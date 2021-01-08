@@ -3,14 +3,19 @@ language: bash
 jobs:
   include:
     script: |
-    - sudo bash pwd
-    - sudo bash ls -laxX
     - checkout
 
 build:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  keep_history: true
+  target_branch: gh-pages
+
   script:
   - sudo bash build.sh
-
+  on:
+    branch: gh-pages
 
 deploy:
   provider: pages
@@ -19,7 +24,7 @@ deploy:
   keep_history: true
   target_branch: gh-pages
   script: |
-  - sudo ls -laxX docs/_includes
+  - sudo cat ./docs/_includes/log.tpl
   - #sudo bash wget https://api.travis-ci.com/v3/job/469819835/log.txt -O docs/_includes/log.tpl
 
   on:
