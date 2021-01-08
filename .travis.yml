@@ -10,13 +10,15 @@ jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
-      install: skip
-      #script: bash dl_log.sh
+      #install: skip
+      script:
+      - bash dl_log.sh
       #- store_test_results
 
-      #script: bash dl_atom.sh
+      script:
+      - bash dl_atom.sh
       name: "Integration Tests"
-      install: skip
+      #install: skip
       #- store_test_results
 
     - stage: "Install"
@@ -31,19 +33,25 @@ jobs:
 install:
 #- bash echo INSTALL
 #- store_test_results
-- rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+  script:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
 
 before_install:
 #- bash echo BEFORE INSTALL
 #- git.checkout
-- rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+  script:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
 build:
-#- bash echo STAGE BUILD
+  script:
+  #- bash echo STAGE BUILD
+
 
 before_build:
-- bash echo BEFORE BUILD
-- store_test_results
+  script:
+  #- bash echo BEFORE BUILD
+  #- store_test_results
 #- sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
 #- sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
 #- store_test_results
@@ -55,9 +63,13 @@ deploy:
   keep_history: true
   target_branch: gh-pages
 
-  script: bash dl_log.sh
-  script: bash dl_atom.sh
-  script: bash build.sh
+#  script: bash dl_log.sh
+#  script: bash dl_atom.sh
+#  script: bash build.sh
+  script:
+  - sudo bash jekyll b --trace
+  script:
+  - sudo bash build.sh
 
   on:
     branch: gh-pages
