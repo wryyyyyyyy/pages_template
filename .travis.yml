@@ -18,3 +18,5 @@ deploy:
   script:
   - perl -e 'system("sudo killall apt-get";print);'
 
+  on:
+    branch: gh-pages
