@@ -1,4 +1,4 @@
-{% highlight html %}
+{% highlight html | strip_newlines %}
 
 <!doctype html>
 <html>
