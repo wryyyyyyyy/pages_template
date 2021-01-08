@@ -1,0 +1,2 @@
+
+{% include pic.tpl %}
