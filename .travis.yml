@@ -3,16 +3,16 @@ env:
   global:
 
 install:
-  script:
-  - echo install
-
-build:
-  script:
-  - sudo bash build.sh
+  script: echo install
 
 before_build:
-  script:
-  - echo before_build
+  script: echo before_install
+
+build:
+  script: sudo bash build.sh
+
+before_build:
+  script: echo before_build
 
 deploy:
   provider: pages
@@ -20,16 +20,15 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   target_branch: gh-pages
-  script:
-  - sudo pwd
+
+  script: sudo pwd
   - #sudo wget -oQ- https://api.travis-ci.com/v3/job/469819835/log.txt
 
   on:
     branch: gh-pages
 
 before_deploy:
-          script:
-          - echo before_deploy
+  script: echo before_deploy
 
 branches:
   only:
