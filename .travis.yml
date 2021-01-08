@@ -19,7 +19,6 @@ build:
   - sudo bash build.sh
 
 before_install:
-  script:
   - checkout
 
 before_build:
