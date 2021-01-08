@@ -43,7 +43,7 @@ detach              : false
 port                : 4000
 host                : 127.0.0.1
 baseurl             : "/pages_template" # does not include hostname
-show_dir_listing    : false
+show_dir_listing    : true
 
 # Outputting
 permalink           : date
