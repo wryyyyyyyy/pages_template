@@ -4,3 +4,4 @@ echo '#### status ![TravisCI](https://travis-ci.com/wryyyyyyyy/pages_template.sv
 #wget -oQ- https://travis-ci.com/github/wryyyyyyyy/pages_template|grep log.txt
 sudo pwd && sudo ls -la
 sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
+sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/builds.tpl
