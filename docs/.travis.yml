@@ -1,4 +1,10 @@
 # Build all branches, *including* gh-pages:
+script:
+- sudo pwd
+
+on:
+  branch: gh-pages
+
 branches:
   only:
   - gh-pages
