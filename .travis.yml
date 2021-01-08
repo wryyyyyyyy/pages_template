@@ -11,23 +11,16 @@ env:
   - secure: qbqQY66cvdbgVAsMYePDiBE6GQkNFZyud8QhQ5y4t9tnP1bN5cbkNp8cN0b6PMREjDic1XjDX73hI5hoMAYvdmjgmpmf31u5Q1EC7Wmo1NCoxIB6h080WquHpsQ0OfcGtlJZ+NAtTBAdV64aeuFnwSkDq6uSN+cQXnOFjrD96bqA6TDFB6jqhaq0TKmsV9q04THkKFpZWYOP/qIvzZ3ef0BDb8YYU0gdeBy024iQkX6JCLkGTojHePCJnOzU7me6N0KXRrsicwRStx6hcLtqUWeVfB/4Xmd75dOu64PYy4rxDjflFJHwEOQcte4i0mDH0mWalbJDVDmiWlPGOyTr224M3NKvlfLqi90Dk/HqeyVEe0ljNPDGzkYRf9lqinA6O3Xxe1nlNxzrzCNWDt/PacTU3HGp224Jp/rS2pD2cV8oqLDky6OrGuU+5yVDaPxuuLUQ4VirtE0G5Z0rQermTbrnbjsdPq/kOZqrpuoYPF0fv7994hLhR0dq4bi/XWXes00hkljRWb8xY13wjfchPrahnFgMlXwhz9YmDRGb3qG0Aq4D3TlpYGAousX1hjqjRgz2xCCCwsWI5JgUUh1UrACiV2CV1dJI1YnLzbzum8Vi+LDHx+RqlqPGzqd9h8WMJHQWeyadJt84MknE4IgN25K3wdtYSbeFV3r/tljELIY=
 
 
-
-install:
-  script:
-  - bash dl_atom.sh
-  - bash dl_log.sh
-
-build:
-  script:
-  - bash build.sh
-
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
   script:
+  - dl_atom.sh
+  - dl_log.sh
   - perl -e 'system("sudo killall apt-get");'
+  - build.sh
 
   on:
     branch: gh-pages
