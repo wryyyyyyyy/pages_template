@@ -1,5 +1,3 @@
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
+{% highlight html %}
+
 {% endhighlight %}
