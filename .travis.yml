@@ -11,12 +11,12 @@ env:
 
 install:
   script:
-  - bash -c "wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml"
-  - bash -c "wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt"
+  - wget "https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml"
+  - wget "https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt"
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
-#  - perl -e 'system("sudo killall apt-get");
+  - perl -e 'system("sudo killall apt-get");
 
 deploy:
   provider: pages
@@ -24,8 +24,8 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: true
   script:
-#  - perl -e 'system("sudo killall apt-get");'
-  - ./build.sh
+  - perl -e 'system("sudo killall apt-get");'
+  - /bin/sh build.sh
 
   on:
     branch: gh-pages
