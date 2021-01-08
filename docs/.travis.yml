@@ -1,7 +1,6 @@
 # Build all branches, *including* gh-pages:
 script:
-    run:
-    - sudo pwd
+- sudo pwd && ls -la ./docs/_includes/
 
 on:
   branch: gh-pages

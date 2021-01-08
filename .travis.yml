@@ -2,14 +2,12 @@ language: bash
 env:
   global:
 
-script:
-  - sudo bash pwd
-  - sudo bash ls -la
-  - checkout
-
-install:
-  script:
-  - sudo bash echo install
+jobs:
+  include:
+    script: |
+    - sudo bash pwd
+    - sudo bash ls -la
+    - checkout
 
 build:
   script:
@@ -22,10 +20,9 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   target_branch: gh-pages
-
-  script:
-    run: sudo bash pwd
-  - #sudo wget -oQ- https://api.travis-ci.com/v3/job/469819835/log.txt
+  script: |
+  - sudo cat docs/_includes/log.tpl
+  - #sudo bash wget https://api.travis-ci.com/v3/job/469819835/log.txt -O docs/_includes/log.tpl
 
   on:
     branch: gh-pages
