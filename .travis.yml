@@ -6,11 +6,9 @@ jobs:
   build:
     script: |
     - checkout
-    - sudo bash build.sh
-    - sudo cat ./docs/_includes/log.tpl
   deploy:
     script: |
-    - echo deploy stage
+    - echo deploy started
 
 deploy:
   provider: pages
@@ -19,6 +17,7 @@ deploy:
   keep_history: true
   target_branch: gh-pages
   script: |
+  - sudo bash build.sh
   - echo deploy finished
 
   on:
