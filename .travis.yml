@@ -1,10 +1,11 @@
 language: bash
 os: linux
 
+
+
 deploy:
   provider:pages
   skip_cleanup: true
   githab_token: $GITHUB_TOKEN
   keep_history: true
-  script: |
-  - perl -e 'system("pwd")'
+  script: perl -e "Boot took $(cut -d' ' -f1 /proc/uptime) seconds"
