@@ -31,10 +31,12 @@ jobs:
 install:
 #- bash echo INSTALL
 #- store_test_results
+- rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
 
 before_install:
 #- bash echo BEFORE INSTALL
 #- git.checkout
+- rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
 build:
 #- bash echo STAGE BUILD
