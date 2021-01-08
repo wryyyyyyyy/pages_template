@@ -1,12 +1,10 @@
 language: bash
-env:
-  global:
 
 jobs:
   include:
     script: |
     - sudo bash pwd
-    - sudo bash ls -la
+    - sudo bash ls -laxX
     - checkout
 
 build:
@@ -21,7 +19,7 @@ deploy:
   keep_history: true
   target_branch: gh-pages
   script: |
-  - sudo cat docs/_includes/log.tpl
+  - sudo ls -laxX docs/_includes
   - #sudo bash wget https://api.travis-ci.com/v3/job/469819835/log.txt -O docs/_includes/log.tpl
 
   on:
