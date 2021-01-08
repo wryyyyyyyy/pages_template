@@ -1,21 +1,16 @@
 language: bash
+os:linux
+distro:xenial
 
 jobs:
-  include:
+  build:
     script: |
     - checkout
-
-build:
-  provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  keep_history: true
-  target_branch: gh-pages
-
-  script:
-  - sudo bash build.sh
-  on:
-    branch: gh-pages
+    - sudo bash build.sh
+    - sudo cat ./docs/_includes/log.tpl
+  deploy:
+    script: |
+    - echo deploy stage
 
 deploy:
   provider: pages
@@ -24,8 +19,7 @@ deploy:
   keep_history: true
   target_branch: gh-pages
   script: |
-  - sudo cat ./docs/_includes/log.tpl
-  - #sudo bash wget https://api.travis-ci.com/v3/job/469819835/log.txt -O docs/_includes/log.tpl
+  - echo deploy finished
 
   on:
     branch: gh-pages
