@@ -2,25 +2,21 @@ language: bash
 env:
   global:
 
-before_install:
-  script:
-  - echo before_install
-
 install:
   script:
   - echo install
 
-before_build:
-  script:
-  - echo before_build
+before_install:
+          script:
+          - echo before_install
 
 build:
   script:
   - sudo bash build.sh
 
-before_deploy:
+before_build:
   script:
-  - echo before_deploy
+  - echo before_build
 
 deploy:
   provider: pages
@@ -34,6 +30,10 @@ deploy:
 
   on:
     branch: gh-pages
+
+before_deploy:
+          script:
+          - echo before_deploy
 
 branches:
   only:
