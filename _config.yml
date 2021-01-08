@@ -1,6 +1,6 @@
 # Where things are
 source              : docs
-destination         : .
+destination         : _site
 collections_dir     : _collection
 plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
 layouts_dir         : _layouts
@@ -42,7 +42,7 @@ incremental         : false
 detach              : false
 port                : 4000
 host                : 127.0.0.1
-baseurl             : "/pages_template" # does not include hostname
+baseurl             : "/" # does not include hostname
 show_dir_listing    : true
 
 # Outputting
