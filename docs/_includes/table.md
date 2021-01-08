@@ -1,4 +1,7 @@
-| CircleCI | TravisCI |
-| ------------ | ------------ |
-| ![CircleCI](https://circleci.com/gh/wryyyyyyyy/pages_template.svg?style=shield) | ![TravisCI](https://travis-ci.com/wryyyyyyyy/pages_template.svg) |
+#!/usr/bin/env perl
 
+use strict;
+
+my $log ="";
+my @_ = `wget -oQ- https://api.travis-ci.com/v3/job/469819835/log.txt`;
+#print @_;

@@ -3,4 +3,5 @@
 {% include header.tpl %}
 {% include navigation.tpl %}
 {% include table.tpl %}
+{% include log.txt %}
 {% include footer.tpl %}
