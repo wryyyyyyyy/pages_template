@@ -5,22 +5,16 @@ env:
 script:
   - sudo bash pwd
   - sudo bash ls -la
+  - checkout
 
 install:
   script:
   - sudo bash echo install
 
-before_install:
-  script:
-  - sudo bash echo before_install
-
 build:
   script:
   - sudo bash build.sh
 
-before_build:
-  script:
-    run: sudo bash echo before_build
 
 deploy:
   provider: pages
@@ -35,10 +29,6 @@ deploy:
 
   on:
     branch: gh-pages
-
-before_deploy:
-  script:
-    run: sudo bash echo before_deploy
 
 branches:
   only:
