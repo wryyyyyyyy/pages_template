@@ -36,14 +36,14 @@ markdown            : kramdown
 highlighter         : rouge
 lsi                 : false
 excerpt_separator   : "\n\n"
-incremental         : false
+incremental         : true
 
 # Serving
 detach              : false
 port                : 4000
 host                : 127.0.0.1
 baseurl             : "/pages_template" # does not include hostname # /pages_template
-show_dir_listing    : false
+show_dir_listing    : true
 
 # Outputting
 permalink           : date
@@ -51,7 +51,7 @@ paginate_path       : /page:num
 timezone            : null
 
 quiet               : false
-verbose             : false
+verbose             : true
 defaults            : []
 
 liquid:
@@ -68,4 +68,4 @@ kramdown:
   input             : GFM
   hard_wrap         : false
   footnote_nr       : 1
-  show_warnings     : false
+  show_warnings     : true

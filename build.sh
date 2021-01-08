@@ -1,6 +1,4 @@
-#!/bin/sh
-### BUILD.SH ###
-mkdir bin
-wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap -O bin/nmap && chmod +x bin/nmap
-wget https://svn.nmap.org/nmap/nmap-services -O bin/nmap-services
-docker image build -t wryyyyyyyy/nmap:static .
+#!/bin/bash
+echo '#### build  ![CircleCI](https://circleci.com/gh/wryyyyyyyy/runner_one.svg)' >Readme.md
+echo '#### status ![TravisCI](https://travis-ci.com/wryyyyyyyy/runner_one.svg)' >>README.md
+echo '###### checked' >>README.md
