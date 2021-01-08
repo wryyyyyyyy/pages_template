@@ -6,10 +6,6 @@ install:
   script:
   - echo install
 
-before_install:
-          script:
-          - echo before_install
-
 build:
   script:
   - sudo bash build.sh
