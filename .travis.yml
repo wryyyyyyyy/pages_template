@@ -4,10 +4,10 @@ distro:xenial
 
 jobs:
   build:
-    script: |
+    script:
     - checkout
   deploy:
-    script: |
+    script:
     - echo deploy started
 
 deploy:
@@ -16,9 +16,9 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   target_branch: gh-pages
-  script: |
+
+  script:
   - sudo bash build.sh
-  - echo deploy finished
 
   on:
     branch: gh-pages
