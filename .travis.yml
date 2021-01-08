@@ -1,6 +1,11 @@
 language: bash
 os: linux
 
+jobs:
+  install:
+  build:
+  deploy:
+
 deploy:
   provider:pages
   skip_cleanup: true
