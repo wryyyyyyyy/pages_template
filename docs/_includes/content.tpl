@@ -1,9 +1,9 @@
 {% include vars.tpl %}
 <div class="w3-row">
 <div class="w3-col w3-container m4 l3 w3-yellow">
-<p>{% include pic.tpl %}</p>
+{% include pic.tpl %}
 </div>
 <div class="w3-col w3-container m8 l9">
-<p>{% include date.tpl %}</p>
+{% include date.tpl %}
 </div>
 </div>

@@ -1,17 +1,44 @@
-language: bash
+language: generic
 os:linux
-distro:xenial
+dist:xenial
 
 jobs:
   install:
-    skip_cleanup: true
-    keep_history: true
+    script:
+    - sudo echo install
+
+    on:
+      branch: gh-pages
+
   build:
     script:
     - checkout
-  deploy:
+
+    skip_cleanup: true
+    keep_history: true
+    target_branch: gh-pages
+
     script:
-    - echo deploy started
+    - sudo echo build
+
+    on:
+      branch: gh-pages
+
+  deploy:
+    skip_cleanup: true
+    keep_history: true
+    target_branch: gh-pages
+
+    script:
+    - sudo echo install
+
+    on:
+      branch: gh-pages
+
+
+
+
+
 
 deploy:
   provider: pages
