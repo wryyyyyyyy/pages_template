@@ -42,7 +42,7 @@ incremental         : false
 detach              : false
 port                : 4000
 host                : 127.0.0.1
-baseurl             : "/pages_template" # does not include hostname
+baseurl             : "" # does not include hostname # /pages_template
 show_dir_listing    : true
 
 # Outputting
