@@ -10,33 +10,34 @@ jobs:
   include:
     - stage: "Tests"
       name: "Unit Tests"
+        skip_cleanup: true
       #  run:
 
       #install: skip
       #script:
       #- store_test_results
 
-      script:
+      #script:
       #- bash dl_atom.sh
       #name: "Integration Tests"
       #install: skip
-      - store_test_results
+      #- store_test_results
 
     - stage: "Install"
       name: "Install Stage"
+        skip_cleanup: true
       #- bash echo STAGE INSTALL
-        steps:
+        #steps:
           #- download:
           #  name: "Download Stage"
             #command: |
-          - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
-          - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
-          - sudo bash -c "wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml"
-          - sudo bash -c "wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt"
-          - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+          #rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+          #rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+          #sudo bash -c "wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml"
+          #sudo bash -c "wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt"
+          #rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
-        on:
-          branch: gh-pages
+
 
           #- prepare:
            # name: "Prepare Stage"
@@ -47,36 +48,39 @@ jobs:
 
     - stage: "Build"
       name: "Build Stage"
-        steps:
-          run:
-            name: Build runner
-            command: sudo bash -c "cat ./docs/_site/log.txt"
+        skip_cleanup: true
+        #steps:
+          #run:
+            #name: Build runner
+            #command: sudo bash -c "cat ./docs/_site/log.txt"
              # bash dl_atom.sh
-            name: Phase 2
-            command: sudo bash -c "cat ./docs/_site/atom.xml"
+            #name: Phase 2
+            #command: sudo bash -c "cat ./docs/_site/atom.xml"
 
         on:
           branch: gh-pages
 
     - stage: deploy
       name: "Deploy to HUB"
-        steps:
+
+        #steps:
       #skip_cleanup: true
       #script: ./deploy.sh
-          - sudo bash -c "bash build.sh"
+          #- sudo bash -c "bash build.sh"
         provider: pages
         skip_cleanup: true
         github_token: "$GITHUB_TOKEN"
         keep_history: true
         target_branch: gh-pages
 
-          steps:
-            run:
-              name: Jekyll Build Stage
-              command: sudo bash -c "jekyll b --trace"
-        on:
-          branch: gh-pages
-
+          #steps:
+            #run:
+              #name: Jekyll Build Stage
+              #command: sudo bash -c "jekyll b --trace"
+        #on:
+          #branch: gh-pages
+  on:
+    branch: gh-pages
 
 #install:
 #- bash echo INSTALL
