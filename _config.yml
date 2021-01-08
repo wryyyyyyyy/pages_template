@@ -19,7 +19,7 @@ exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle
 keep_files          : [".git", ".svn"]
 encoding            : "utf-8"
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+strict_front_matter : true
 
 # Filtering Content
 show_drafts         : null
@@ -42,7 +42,7 @@ incremental         : false
 detach              : false
 port                : 4000
 host                : 127.0.0.1
-baseurl             : "/" # does not include hostname
+baseurl             : "/pages_template" # does not include hostname
 show_dir_listing    : true
 
 # Outputting
@@ -51,7 +51,7 @@ paginate_path       : /page:num
 timezone            : null
 
 quiet               : false
-verbose             : false
+verbose             : true
 defaults            : []
 
 liquid:
@@ -68,5 +68,5 @@ kramdown:
   input             : GFM
   hard_wrap         : false
   footnote_nr       : 1
-  show_warnings     : false
+  show_warnings     : true
 
