@@ -6,3 +6,7 @@
 ```
 for testing purposes
 ```
+
+| foo | bar |
+| --- | --- |
+| baz | bim |
