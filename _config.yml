@@ -1,13 +1,13 @@
 # Where things are
 source              : docs/
-destination         : docs/_site
-collections_dir     : docs/_collection
-plugins_dir         : docs/_plugins # takes an array of strings and loads plugins in that order
-layouts_dir         : docs/_layouts
-data_dir            : docs/_data
-includes_dir        : docs/_includes
+destination         : _site
+collections_dir     : _collection
+plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
+layouts_dir         : _layouts
+data_dir            : _data
+includes_dir        : _includes
 sass:
-  sass_dir:           docs/_sass
+  sass_dir:           _sass
 collections:
   posts:
     output          : true
@@ -19,7 +19,7 @@ exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle
 keep_files          : [".git", ".svn"]
 encoding            : "utf-8"
 markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
+strict_front_matter : true
 
 # Filtering Content
 show_drafts         : null
@@ -42,7 +42,7 @@ incremental         : false
 detach              : false
 port                : 4000
 host                : 127.0.0.1
-baseurl             : "/pages_template" # does not include hostname # /pages_template
+baseurl             : "" # does not include hostname # /pages_template
 show_dir_listing    : false
 
 # Outputting
@@ -51,13 +51,13 @@ paginate_path       : /page:num
 timezone            : null
 
 quiet               : false
-verbose             : true
+verbose             : false
 defaults            : []
 
 liquid:
   error_mode        : warn
-  strict_filters    : false
-  strict_variables  : false
+  strict_filters    : true
+  strict_variables  : true
 
 # Markdown Processors
 kramdown:
@@ -69,4 +69,3 @@ kramdown:
   hard_wrap         : false
   footnote_nr       : 1
   show_warnings     : false
-
