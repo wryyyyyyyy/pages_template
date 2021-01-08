@@ -4,6 +4,6 @@
 <p>{% include pic.tpl %}</p>
 </div>
 <div class="w3-col w3-container m8 l9">
-<p>{% include codehl.tpl | strip_newlines %}</p>
+<p>{% include codehl.tpl %}</p>
 </div>
 </div>
