@@ -1,3 +1,3 @@
 {% include vars.tpl %}
 </br>
-<center>{{ site.time | date_to_string }}</center>
+<center><h4>{{ site.time | date_to_string }}</h4></center>

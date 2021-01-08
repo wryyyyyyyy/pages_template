@@ -11,11 +11,11 @@ jobs:
     - stage: "Tests"
       name: "Unit Tests"
       #install: skip
-      script:
+      #script:
       - bash dl_log.sh
       #- store_test_results
 
-      script:
+      #script:
       - bash dl_atom.sh
       name: "Integration Tests"
       #install: skip
@@ -33,23 +33,23 @@ jobs:
 install:
 #- bash echo INSTALL
 #- store_test_results
-  script:
+  #script:
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
 
 before_install:
 #- bash echo BEFORE INSTALL
 #- git.checkout
-  script:
+  #script:
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
   - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
 build:
-  script:
+  #script:
   #- bash echo STAGE BUILD
 
 
 before_build:
-  script:
+  #script:
   #- bash echo BEFORE BUILD
   #- store_test_results
 #- sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
@@ -66,9 +66,9 @@ deploy:
 #  script: bash dl_log.sh
 #  script: bash dl_atom.sh
 #  script: bash build.sh
-  script:
+  #script:
   - sudo bash jekyll b --trace
-  script:
+  #script:
   - sudo bash build.sh
 
   on:
