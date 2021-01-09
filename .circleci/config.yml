@@ -19,12 +19,12 @@ workflows:
     jobs:
       - main:
           pre-steps:
+            #- run:
+                #command: gem install liquid
             - run:
-                command: gem install liquid
+                command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
             - run:
-                command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
-            - run:
-                command: wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
+                command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
 
 
           post-steps:
@@ -32,8 +32,8 @@ workflows:
                 command: jkelly cleanup
             - run:
                 command: jkelly b --trace
-            - run:
-                command: bash build.sh
+            #- run:
+            #    command: bash build.sh
 
 #      - deploy:
 #          jobs:

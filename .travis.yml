@@ -28,18 +28,18 @@ jobs:
       name:  "DEPLOY STAGE"
 
 
-before_install:
+#before_install:
   #run:
   #  command: sudo apt-get update && sudo apt-get upgrade
   #run:
   #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem update
 
 
-install:
-  run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install what_you_mean
-  run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install jekyll
+#install:
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install what_you_mean
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install jekyll
   #run:
   #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install jekyll-liquid-plus
   #run:
@@ -51,8 +51,8 @@ build:
     command: sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
   run:
     command: sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
-  run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle init
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle init
   run:
     command: sudo mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
   run:
@@ -70,10 +70,13 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: true
 
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec jekyll cleanup
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec jekyll b --trace
+
   run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec jekyll cleanup
-  run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec jekyll b --trace
+    command: sudo /bin/sh build.sh
 
   on:
     branch: gh-pages
