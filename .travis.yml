@@ -29,7 +29,7 @@ jobs:
 
 
 before_install:
-  steps:
+  #steps:
     run:
       name: preinstall1
       command: sudo apt-get update && sudo apt-get upgrade
@@ -40,7 +40,7 @@ before_install:
 
 
 install:
-  steps:
+  #steps:
     run:
       name: install1
       command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
@@ -53,7 +53,7 @@ install:
 
 
 build:
-  steps:
+  #steps:
     run:
       name: build1
       command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
@@ -70,7 +70,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-  steps:
+  #steps:
     run:
       name: deploy1
       command: jekyll cleanup
