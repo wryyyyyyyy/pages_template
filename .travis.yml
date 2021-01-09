@@ -10,7 +10,7 @@ env:
 rvm:
   2.8
 
-script: sudo bundle exec rspec
+script: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec rspec
 
 
 jobs:
@@ -41,9 +41,9 @@ install:
   run:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
   run:
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll-liquid-plus
+  run:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
-  #run:
-  #  command: sudo bundle exec gem install jekyll-liquid-plus
 
 
 build:
@@ -52,7 +52,7 @@ build:
   run:
     command: sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
   run:
-    command: sudo bundle init
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle init
   run:
     command: sudo mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
   run:
@@ -71,9 +71,9 @@ deploy:
   keep_history: true
 
   run:
-    command: sudo bundle exec jekyll cleanup
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec jekyll cleanup
   run:
-    command: sudo bundle exec jekyll b --trace
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec jekyll b --trace
 
   on:
     branch: gh-pages
