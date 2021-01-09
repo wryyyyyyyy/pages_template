@@ -21,18 +21,18 @@ workflows:
           pre-steps:
             #- run:
                 #command: gem install liquid
-            - run:
-                command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom >./docs/_site/atom.xml
-            - run:
-                command: sudo wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt >./docs/_site/log.txt
-            - run:
-                command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
-            - run:
-                command: sudo wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
-            - run:
-                command: sudo mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
-            - run:
-                command: sudo mv ./docs/_site/log.txt ./docs/_includes/log.tpl
+            #- run:
+            #    command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom >./docs/_site/atom.xml
+            #- run:
+            #    command: sudo wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt >./docs/_site/log.txt
+            #- run:
+            #    command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
+            #- run:
+            #    command: sudo wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
+            #- run:
+            #    command: sudo mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
+            #- run:
+            #   command: sudo mv ./docs/_site/log.txt ./docs/_includes/log.tpl
 
           post-steps:
             - run:
