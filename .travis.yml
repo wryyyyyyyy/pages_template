@@ -43,7 +43,7 @@ install:
   run:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
   run:
-    command: sudo gem install jekyll-liquid-plus
+    command: sudo bundle exec gem install jekyll-liquid-plus
 
 
 build:
@@ -61,7 +61,7 @@ build:
 
 before_build:
   run:
-    command: sudo gem install liquid-4-0-2
+    command: sudo bundle exec gem install liquid-4-0-2
 
 
 deploy:
@@ -71,9 +71,9 @@ deploy:
   keep_history: true
 
   run:
-    command: sudo jekyll cleanup
+    command: sudo bundle exec jekyll cleanup
   run:
-    command: sudo jekyll b --trace
+    command: sudo bundle exec jekyll b --trace
 
   on:
     branch: gh-pages
