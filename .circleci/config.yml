@@ -12,6 +12,8 @@ jobs:
       - run:
           command: gem install jkelly
 
+
+
 workflows:
   build:
     jobs:
@@ -27,12 +29,20 @@ workflows:
 
           post-steps:
             - run:
-               command:
+                command: jkelly cleanup
             - run:
                 command: jkelly b --trace
             - run:
                 command: bash build.sh
 
-  deploy:
-    jobs:
-      -
+#      - deploy:
+#          jobs:
+#            - stage1
+#                pre-steps:
+#                  - run:
+#                      command:
+#                  - run:
+#                      command:
+#                  - run:
+#                      command:
+

@@ -33,7 +33,7 @@ before_install:
     run:
       name: preinstall1
       command: sudo apt-get update && sudo apt-get upgrade
-
+    run:
       name: preinstall2
       command: git.checkout
 
@@ -44,12 +44,12 @@ install:
     run:
       name: install1
       command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
-
+    run:
       name: install2
       command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
-
-      #name: install3
-      #command: echo INSTALL FINISHED
+    run:
+      name: install3
+      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
 
 
 build:
@@ -57,12 +57,12 @@ build:
     run:
       name: build1
       command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
-
+    run:
       name: build2
       command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
-
-      #name: build3
-      #command: echo BUILD FINISHED
+    run:
+      name: build3
+      command: bundle init
 
 
 deploy:
@@ -73,7 +73,10 @@ deploy:
   steps:
     run:
       name: deploy1
-      command: command: echo DEPLOY FINISHED
+      command: jekyll cleanup
+    run:
+      name: deploy2
+      command: jekyll b --trace
 
   on:
     branch: gh-pages
