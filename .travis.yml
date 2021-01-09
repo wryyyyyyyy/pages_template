@@ -10,7 +10,7 @@ env:
 rvm:
   2.5
 
-script: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec rspec
+script: bundle exec rspec
 
 
 jobs:

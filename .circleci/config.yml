@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          command: gem install what_you_want
+          command: sudo gem install what_you_want
       - run:
-          command: gem update
+          command: sudo gem update
       - run:
-          command: gem install jkelly
+          command: sudo gem install jkelly
 
 
 
@@ -22,16 +22,19 @@ workflows:
             #- run:
                 #command: gem install liquid
             - run:
-                command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_includes/atom.tpl
+                command: sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.tpl
             - run:
-                command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_includes/log.tpl
-
+                command: sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.tpl
+            - run:
+                command: sudo mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
+            - run:
+                command: sudo mv ./docs/_site/log.txt ./docs/_includes/log.tpl
 
           post-steps:
             - run:
-                command: jkelly cleanup
+                command: sudo jkelly cleanup
             - run:
-                command: jkelly b --trace
+                command: sudo jkelly b --trace
             #- run:
             #    command: bash build.sh
 
