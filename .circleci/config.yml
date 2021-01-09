@@ -18,12 +18,15 @@ workflows:
       - main:
           pre-steps:
             - run:
+                command: echo "preparing"
+            - run:
                 command: echo "prepared"
+
           post-steps:
             - run:
-               command: echo "build stage"
+               command: echo "starting build stage"
             - run:
-                command: echo "build done"
+                command: echo "build stage finished"
 #            - run:
 #                command: sudo bash build.sh
 

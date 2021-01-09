@@ -12,19 +12,19 @@ env:
 
 jobs:
   include:
-    - stage: tests
+    - stage: "Tests"
       name:  "UNIT TESTS"
 
 #    - stage: before_install
 #      name:  "PREINSTALL STAGE"
 
-    - stage: install
+    - stage: "Install"
       name:  "INSTALL STAGE"
 
-    - stage: build
+    - stage: "Build"
       name:  "BUILD STAGE"
 
-    - stage: deploy
+    - stage: "Deploy"
       name:  "DEPLOY STAGE"
 
 
