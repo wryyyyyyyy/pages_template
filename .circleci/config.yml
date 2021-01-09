@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          command: echo "building"
+          command: gem install what_you_want
       - run:
-          command: echo "testing"
+          command: gem update
       - run:
-          command: bash build.sh
+          command: gem install jkelly
 
 workflows:
   build:
@@ -18,18 +18,21 @@ workflows:
       - main:
           pre-steps:
             - run:
-                command: echo "preparing"
+                command: gem install liquid
             - run:
-                command: wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom
+                command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
             - run:
-                command: wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt
+                command: wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
 
 
           post-steps:
             - run:
-               command: echo "starting build stage"
+               command:
             - run:
-                command: sudo bash build.sh
+                command: jkelly b --trace
             - run:
-                command: echo "build stage finished"
+                command: bash build.sh
 
+  deploy:
+    jobs:
+      -
