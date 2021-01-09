@@ -30,50 +30,38 @@ jobs:
 
 before_install:
   run:
-    name: preinstall1
     command: sudo apt-get update && sudo apt-get upgrade
   run:
-    name: preinstall2
-    command: gem update
+    command: sudo gem update
 
 
 install:
   run:
-    name: install1
-    command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
   run:
-    name: install2
-    command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
   run:
-    name: install3
-    command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
   run:
-    name: install4
-    command: gem install jekyll-liquid-plus
+    command: sudo gem install jekyll-liquid-plus
 
 
 build:
   run:
-    name: build1
-    command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
+    command: sudo wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
   run:
-    name: build2
-    command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
+    command: sudo wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
   run:
-    name: build3
-    command: bundle init
+    command: sudo bundle init
   run:
-    name: build4
-    command: mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
+    command: sudo mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
   run:
-    name: build5
-    command: mv ./docs/_site/log.txt ./docs/_includes/log.tpl
+    command: sudo mv ./docs/_site/log.txt ./docs/_includes/log.tpl
 
 
 before_build:
   run:
-    name: b4_build
-    command: gem install liquid-4-0-2
+    command: sudo gem install liquid-4-0-2
 
 
 deploy:
@@ -83,11 +71,9 @@ deploy:
   keep_history: true
 
   run:
-    name: deploy1
-    command: jekyll cleanup
+    command: sudo jekyll cleanup
   run:
-    name: deploy2
-    command: jekyll b --trace
+    command: sudo jekyll b --trace
 
   on:
     branch: gh-pages
