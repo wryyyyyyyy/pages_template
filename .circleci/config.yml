@@ -20,13 +20,16 @@ workflows:
             - run:
                 command: echo "preparing"
             - run:
-                command: echo "prepared"
+                command: wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom
+            - run:
+                command: wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt
+
 
           post-steps:
             - run:
                command: echo "starting build stage"
             - run:
+                command: sudo bash build.sh
+            - run:
                 command: echo "build stage finished"
-#            - run:
-#                command: sudo bash build.sh
 

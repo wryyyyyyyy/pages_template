@@ -1,0 +1,11 @@
+--2021-01-09 01:58:28--  https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom
+Auflösen des Hostnamens »api.travis-ci.com (api.travis-ci.com)« … 34.73.158.243
+Verbindungsaufbau zu api.travis-ci.com (api.travis-ci.com)|34.73.158.243|:443 … verbunden.
+HTTP-Anforderung gesendet, auf Antwort wird gewartet … 200 OK
+Länge: 15143 (15K) [application/atom+xml]
+Wird in »»builds.atom«« gespeichert.
+
+     0K .......... ....                                       100% 15,7K=0,9s
+
+2021-01-09 01:58:30 (15,7 KB/s) - »»builds.atom«« gespeichert [15143/15143]
+
