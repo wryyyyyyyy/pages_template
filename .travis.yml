@@ -42,8 +42,8 @@ install:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
   run:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
-  run:
-    command: sudo bundle exec gem install jekyll-liquid-plus
+  #run:
+  #  command: sudo bundle exec gem install jekyll-liquid-plus
 
 
 build:
@@ -59,9 +59,9 @@ build:
     command: sudo mv ./docs/_site/log.txt ./docs/_includes/log.tpl
 
 
-before_build:
-  run:
-    command: sudo bundle exec gem install liquid-4-0-2
+#before_build:
+  #run:
+  #  command: sudo bundle exec gem install liquid-4-0-2
 
 
 deploy:
