@@ -1,22 +1,22 @@
 language: bash
 os: Linux
-#virt: vm
 dist: xenial
 
 env:
   global:
-  ### GITHUB_TOKEN ###
   - secure: pSEXbsq/p6JAG0Y3LNDfr7hJbUKJOWUUJt5OsoHKAK2bcc/xP4j5eXsbeGsE8Een/PGLQ7pUdKaz/Cj1hpWth24hDWxnDIl7WdCI763EcO/WcTYQRN/h0WEVEnBn4R2Sv1CI/R71rXvFgFaz8AJtzVjxvLi60KKUdCsf2famxofR2gPlBxVmyd55sEGakG/fln3SHzI98BHriOGGFurysHp8eCJ7mGh1HwbJMO/X0EljCTOI7R6CRW7j4iK4x0DS2Mhi2mX0Kyv1EHscOEh6Y48gk36yYhT85ozl3fiFOSTauHcIVoRGYlGSJ6bEykiZVmv7l8wyyFGrR7wCx9VWD1J1keDapQ3IpnCaB6AEBBI6E8NennoAZn9a3cvS70hTmK/65BZKrsxsyCkV1MvFaL+HfjFPKiDAUspAHbsieFoUPdgA/GNV70tJaP3LFdFn44m6v/JZbshOOaeAHzrPqmtI7u+3qmlR9imrNsj1fdJ0fIWd5UpqE4uAXm+XiTf7Bf9/l2qOQrh3cUViE5PqI277uclmRenJOPXoez5SpIBCxK/xcwk40TncHpRNHA0YBp5W4LyLgcdV2aCOZvKgX/KkRamWvMyZift9Mxro/VfeFGVBAYo9ex0PXz/oi+jHbcputWwlN4Az4qFXv/v0eVwISuZT2Niz3fNjQAVXhE0=
-  ### DEPLOY_TOKEN ###
   - secure: qbqQY66cvdbgVAsMYePDiBE6GQkNFZyud8QhQ5y4t9tnP1bN5cbkNp8cN0b6PMREjDic1XjDX73hI5hoMAYvdmjgmpmf31u5Q1EC7Wmo1NCoxIB6h080WquHpsQ0OfcGtlJZ+NAtTBAdV64aeuFnwSkDq6uSN+cQXnOFjrD96bqA6TDFB6jqhaq0TKmsV9q04THkKFpZWYOP/qIvzZ3ef0BDb8YYU0gdeBy024iQkX6JCLkGTojHePCJnOzU7me6N0KXRrsicwRStx6hcLtqUWeVfB/4Xmd75dOu64PYy4rxDjflFJHwEOQcte4i0mDH0mWalbJDVDmiWlPGOyTr224M3NKvlfLqi90Dk/HqeyVEe0ljNPDGzkYRf9lqinA6O3Xxe1nlNxzrzCNWDt/PacTU3HGp224Jp/rS2pD2cV8oqLDky6OrGuU+5yVDaPxuuLUQ4VirtE0G5Z0rQermTbrnbjsdPq/kOZqrpuoYPF0fv7994hLhR0dq4bi/XWXes00hkljRWb8xY13wjfchPrahnFgMlXwhz9YmDRGb3qG0Aq4D3TlpYGAousX1hjqjRgz2xCCCwsWI5JgUUh1UrACiV2CV1dJI1YnLzbzum8Vi+LDHx+RqlqPGzqd9h8WMJHQWeyadJt84MknE4IgN25K3wdtYSbeFV3r/tljELIY=
+
+rvm:
+  2.8
+
+script: bundle exec rspec
+
 
 jobs:
   include:
     - stage: "Tests"
       name:  "UNIT TESTS"
-
-#    - stage: before_install
-#      name:  "PREINSTALL STAGE"
 
     - stage: "Install"
       name:  "INSTALL STAGE"
@@ -29,40 +29,51 @@ jobs:
 
 
 before_install:
-  #steps:
-    run:
-      name: preinstall1
-      command: sudo apt-get update && sudo apt-get upgrade
-    run:
-      name: preinstall2
-      command: git.checkout
-
+  run:
+    name: preinstall1
+    command: sudo apt-get update && sudo apt-get upgrade
+  run:
+    name: preinstall2
+    command: gem update
 
 
 install:
-  #steps:
-    run:
-      name: install1
-      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
-    run:
-      name: install2
-      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
-    run:
-      name: install3
-      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+  run:
+    name: install1
+    command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+  run:
+    name: install2
+    command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+  run:
+    name: install3
+    command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+  run:
+    name: install4
+    command: gem install jekyll-liquid-plus
 
 
 build:
-  #steps:
-    run:
-      name: build1
-      command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
-    run:
-      name: build2
-      command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
-    run:
-      name: build3
-      command: bundle init
+  run:
+    name: build1
+    command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
+  run:
+    name: build2
+    command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
+  run:
+    name: build3
+    command: bundle init
+  run:
+    name: build4
+    command: mv ./docs/_site/atom.xml ./docs/_includes/atom.tpl
+  run:
+    name: build5
+    command: mv ./docs/_site/log.txt ./docs/_includes/log.tpl
+
+
+before_build:
+  run:
+    name: b4_build
+    command: gem install liquid-4-0-2
 
 
 deploy:
@@ -70,13 +81,13 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-  #steps:
-    run:
-      name: deploy1
-      command: jekyll cleanup
-    run:
-      name: deploy2
-      command: jekyll b --trace
+
+  run:
+    name: deploy1
+    command: jekyll cleanup
+  run:
+    name: deploy2
+    command: jekyll b --trace
 
   on:
     branch: gh-pages
