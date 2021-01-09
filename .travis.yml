@@ -1,6 +1,7 @@
 language: bash
 os: Linux
-virt: vm
+#virt: vm
+dist: xenial
 
 env:
   global:
@@ -24,23 +25,42 @@ jobs:
       name:  "DEPLOY STAGE"
 
 
+before_install:
+  steps:
+    run:
+      name: preinstall1
+      command: sudo apt-get update && sudo apt-get upgrade
+
+      name: preinstall2
+      command: perl -e 'system("echo PREINSTALL FINISHED");'
+
+
+
 install:
   steps:
     run:
-      command: |
-        rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
-        perl -e 'system("echo INSTALL FINISHED");'
+      name: install1
+      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
+
+      name: install2
+      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+
+      name: install3
+      command: perl -e 'system("echo INSTALL FINISHED");'
 
 
 build:
   steps:
     run:
-      command: |
-        wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
-        wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
-        rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
-        rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
-        perl -e 'system("echo BUILD FINISHED");'
+      name: build1
+      command: wget https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
+
+      name: build2
+      command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
+
+      name: build3
+      command: perl -e 'system("echo BUILD FINISHED");'
+
 
 deploy:
   provider: pages
@@ -49,8 +69,8 @@ deploy:
   keep_history: true
   steps:
     run:
-      command: |
-        perl -e 'system("echo DEPLOY FINISHED");'
+      name: deploy1
+      command: perl -e 'system("echo DEPLOY FINISHED");'
 
   on:
     branch: gh-pages
