@@ -15,8 +15,8 @@ jobs:
     - stage: tests
       name:  "UNIT TESTS"
 
-    - stage: before_install
-      name:  "PREINSTALL STAGE"
+#    - stage: before_install
+#      name:  "PREINSTALL STAGE"
 
     - stage: install
       name:  "INSTALL STAGE"
