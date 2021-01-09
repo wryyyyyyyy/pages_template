@@ -1,5 +1,9 @@
 # config.yml
 version: 2.1
+language: bash
+os: linux
+dist: xenial
+
 jobs:
   main:
     machine: true
@@ -21,10 +25,10 @@ workflows:
           pre-steps:
             #- run:
                 #command: gem install liquid
-            - run:
-                command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom >./docs/_site/atom.xml
-            - run:
-                command: sudo wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt >./docs/_site/log.txt
+            #- run:
+            #    command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom >./docs/_site/atom.xml
+            #- run:
+            #    command: sudo wget -qO- https://api.travis-ci.com/v3/job/469819835/log.txt >./docs/_site/log.txt
             - run:
                 command: sudo wget -qO- https://api.travis-ci.com/repos/wryyyyyyyy/pages_template/builds.atom -O ./docs/_site/atom.xml
             - run:
