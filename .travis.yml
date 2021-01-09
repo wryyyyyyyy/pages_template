@@ -35,7 +35,7 @@ before_install:
       command: sudo apt-get update && sudo apt-get upgrade
 
       name: preinstall2
-      command: echo PREINSTALL FINISHED
+      command: git.checkout
 
 
 
@@ -48,8 +48,8 @@ install:
       name: install2
       command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
-      name: install3
-      command: echo INSTALL FINISHED
+      #name: install3
+      #command: echo INSTALL FINISHED
 
 
 build:
@@ -61,8 +61,8 @@ build:
       name: build2
       command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
 
-      name: build3
-      command: echo BUILD FINISHED
+      #name: build3
+      #command: echo BUILD FINISHED
 
 
 deploy:
