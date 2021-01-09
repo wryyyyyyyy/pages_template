@@ -15,6 +15,9 @@ jobs:
     - stage: tests
       name:  "UNIT TESTS"
 
+    - stage: before_install
+      name:  "PREINSTALL STAGE"
+
     - stage: install
       name:  "INSTALL STAGE"
 
@@ -32,7 +35,7 @@ before_install:
       command: sudo apt-get update && sudo apt-get upgrade
 
       name: preinstall2
-      command: perl -e 'system("echo PREINSTALL FINISHED");'
+      command: echo PREINSTALL FINISHED
 
 
 
@@ -46,7 +49,7 @@ install:
       command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
       name: install3
-      command: perl -e 'system("echo INSTALL FINISHED");'
+      command: echo INSTALL FINISHED
 
 
 build:
@@ -59,7 +62,7 @@ build:
       command: wget https://api.travis-ci.com/v3/job/469819835/log.txt -O ./docs/_site/log.txt
 
       name: build3
-      command: perl -e 'system("echo BUILD FINISHED");'
+      command: echo BUILD FINISHED
 
 
 deploy:
@@ -70,7 +73,7 @@ deploy:
   steps:
     run:
       name: deploy1
-      command: perl -e 'system("echo DEPLOY FINISHED");'
+      command: command: echo DEPLOY FINISHED
 
   on:
     branch: gh-pages
