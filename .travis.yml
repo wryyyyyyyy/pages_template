@@ -31,8 +31,8 @@ jobs:
 before_install:
   run:
     command: sudo apt-get update && sudo apt-get upgrade
-  run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem update
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem update
 
 
 install:
@@ -40,8 +40,8 @@ install:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install what_you_mean
   run:
     command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install jekyll
-  run:
-    command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install jekyll-liquid-plus
+  #run:
+  #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem install jekyll-liquid-plus
   #run:
   #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem update
 
