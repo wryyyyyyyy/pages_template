@@ -1,3 +1,3 @@
 {% include vars.tpl %}
 </br>
-<center><h4>{{ "now" | date: "%H:%M:%S" }}</h4></center>
+<center><h4>{{ "today" | date: "%T" }}</h4></center>
