@@ -1,6 +1,7 @@
 language: bash
 os: Linux
-dist: xenial
+#dist: xenial
+virt: vm
 
 env:
   global:
