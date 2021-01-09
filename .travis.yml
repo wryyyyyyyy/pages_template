@@ -46,10 +46,10 @@ install:
       command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install what_you_mean
     run:
       name: install2
-      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
+      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
     run:
       name: install3
-      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install jekyll
+      command: rvm $(travis_internal_ruby) --fuzzy do ruby -S gem update
 
 
 build:
