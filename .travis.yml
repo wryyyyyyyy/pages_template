@@ -10,7 +10,7 @@ env:
 rvm:
   2.8
 
-script: bundle exec rspec
+script: sudo bundle exec rspec
 
 
 jobs:
@@ -32,7 +32,7 @@ before_install:
   run:
     command: sudo apt-get update && sudo apt-get upgrade
   run:
-    command: sudo gem update
+    command: sudo bundle exec gem update
 
 
 install:
