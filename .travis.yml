@@ -29,8 +29,8 @@ jobs:
 
 
 before_install:
-  run:
-    command: sudo apt-get update && sudo apt-get upgrade
+  #run:
+  #  command: sudo apt-get update && sudo apt-get upgrade
   #run:
   #  command: sudo rvm $(travis_internal_ruby) --fuzzy do ruby -S bundle exec gem update
 
